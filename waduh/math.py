@@ -35,3 +35,17 @@ def rectangle(x, y, type=str):
         return x * y
     elif type == "perimeter":
         return 2 * (x + y)
+
+
+def triangle(x, y, z, type=str):
+    if type == "area":
+        return 0.5 * x * y
+    elif type == "perimeter":
+        return x + y + z
+
+
+def circle(x, type=str):
+    if type == "area":
+        return math.pi * x**2
+    elif type == "perimeter":
+        return 2 * math.pi * x
