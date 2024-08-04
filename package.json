@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "format": "black **/*.py",
+    "lint": "flake8 .",
+    "test": "python -m unittest tests/test_unit.py",
+    "build": "python setup.py sdist bdist_wheel",
+    "deploy": "twine upload dist/*"
+  },
+  "devDepedencies": {}
+}
