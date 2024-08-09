@@ -1,51 +1,35 @@
 import math
 
-
-def aritmethic(x, y, type=str):
-    """
-    Do a Aritmethic operation to number.
-
-    Args:
-      x (int, float): first number.
-      y (int, float): second number.
-      type= (string): operation type (add, substract, multiply, distribute)
-
-    Returns:
-      int, float: Result for aritmethic operation between x and y.
-    """
-    if type == "add":
+class Arithmetic:
+    def __init__(self, method=str):
+        self.set_method(method)
+        
+    def set_method(self, method):
+        if method == "add":
+            self.method = self.add
+        elif method == "multiply":
+            self.method = self.multiply
+        elif method == "substract":
+            self.method = self.substract
+        elif method == "distribute":
+            self.method = self.distribute
+        else:
+            raise ValueError("Invalid arithmetic method.")
+        
+    def add(self, x, y):
         return x + y
-    elif type == "substract":
+    
+    def multiply(self, x, y):
+        return x * y
+    
+    def substract(self, x, y):
         return x - y
-    elif type == "multiply":
-        return x * y
-    elif type == "distribute":
+    
+    def distribute(self, x, y):
+        if y == 0:
+            raise ValueError("Distribute with zero is not allowed.")
         return x / y
-
-
-def square(x, type=str):
-    if type == "area":
-        return x**2
-    elif type == "perimeter":
-        return 4 * x
-
-
-def rectangle(x, y, type=str):
-    if type == "area":
-        return x * y
-    elif type == "perimeter":
-        return 2 * (x + y)
-
-
-def triangle(x, y, z, type=str):
-    if type == "area":
-        return 0.5 * x * y
-    elif type == "perimeter":
-        return x + y + z
-
-
-def circle(x, type=str):
-    if type == "area":
-        return math.pi * x**2
-    elif type == "perimeter":
-        return 2 * math.pi * x
+    
+    def calculate(self, x, y):
+        return self.method(x, y)
+        
